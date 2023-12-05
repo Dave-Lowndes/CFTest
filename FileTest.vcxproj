@@ -137,6 +137,7 @@
     <Image Include="res\FileTest.ico" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="README.md" />
     <None Include="res\FileTest.rc2" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

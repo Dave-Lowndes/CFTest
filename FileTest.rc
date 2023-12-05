@@ -1,0 +1,254 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (United Kingdom) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENG)
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_UK
+#pragma code_page(1252)
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "#include ""res\\FileTest.rc2""  // non-Microsoft Visual C++ edited resources\r\n"
+    "\r\n"
+    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "#include ""afxres.rc""  // Standard components\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_MAINFRAME           ICON                    "res\\FileTest.ico"
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_ABOUTBOX DIALOGEX 34, 22, 217, 55
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "About CreateFile Test"
+FONT 8, "MS Shell Dlg", 0, 0, 0x0
+BEGIN
+    ICON            IDR_MAINFRAME,IDC_STATIC,11,17,20,20
+    LTEXT           "CreateFile Test",IDC_STATIC,40,10,119,8
+    LTEXT           "Copyright © JD Design 1995-2023",IDC_STATIC,40,25,155,8
+    DEFPUSHBUTTON   "OK",IDOK,161,7,50,14,WS_GROUP
+END
+
+IDD_FILETEST_DIALOG DIALOGEX 0, 0, 322, 225
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_MINIMIZEBOX | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "JD Design CreateFile Test Utility"
+FONT 8, "MS Shell Dlg", 0, 0, 0x0
+BEGIN
+    LTEXT           "&File Name",IDC_STATIC,7,9,32,8
+    EDITTEXT        IDC_FILENAME,45,7,193,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "&...",IDC_BROWSE,240,7,14,14
+    COMBOBOX        IDC_CREATION,7,31,80,70,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    GROUPBOX        "&Mode",IDC_STATIC,7,45,79,40,WS_GROUP
+    CONTROL         "Generic &Read",IDC_READ,"Button",BS_AUTOCHECKBOX | WS_GROUP | WS_TABSTOP,19,56,65,10
+    CONTROL         "Generic &Write",IDC_WRITE,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,19,68,65,10
+    GROUPBOX        "&Sharing",IDC_STATIC,96,27,56,57,WS_GROUP
+    CONTROL         "R&ead",IDC_SHARE_READ,"Button",BS_AUTOCHECKBOX | WS_GROUP | WS_TABSTOP,104,37,43,10
+    CONTROL         "Wr&ite",IDC_SHARE_WRITE,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,104,52,40,10
+    CONTROL         "De&lete",IDC_SHARE_DELETE,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,104,68,37,10
+    GROUPBOX        "Flags and Attributes",IDC_STATIC,7,90,308,44,WS_GROUP
+    CONTROL         "&Delete On Close",IDC_DELETE,"Button",BS_AUTOCHECKBOX | WS_GROUP | WS_TABSTOP,17,102,91,10
+    CONTROL         "&Temporary",IDC_TEMPORARY,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,17,117,93,10
+    CONTROL         "Backup Semantics",IDC_BACKUP_ATTR,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,126,102,73,10
+    CONTROL         "No &Buffering",IDC_NO_BUFFER_FLAG,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,126,116,86,10
+    CONTROL         "Posi&x Semantics",IDC_POSIX_SEMANTICS,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,225,103,67,10
+    CONTROL         "&Preserve Timestamps",IDC_PRESERVE_TIMESTAMP,"Button",BS_AUTOCHECKBOX | WS_GROUP | WS_TABSTOP,231,25,84,10
+    PUSHBUTTON      "&Open File",IDC_OPEN,265,7,50,14,WS_GROUP
+    PUSHBUTTON      "&Close File",IDC_CLOSE,265,43,50,14,WS_DISABLED | WS_GROUP
+    PUSHBUTTON      "Exit",IDCANCEL,265,69,50,14,WS_GROUP
+    CONTROL         "",IDC_STATIC,"Static",SS_BLACKFRAME,7,141,308,1,WS_EX_STATICEDGE
+    LTEXT           "The following controls allow you to read and write a few bytes of data at the start of the file using space delimited hex representation.\ne.g. 44 61 76 69 64",IDC_STATIC,7,146,308,32
+    EDITTEXT        IDC_RW_BUFFER,7,180,308,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "Read",IDC_READ_BUFF,7,204,50,14,WS_DISABLED
+    PUSHBUTTON      "Write",IDC_WRITE_BUFF,71,204,50,14,WS_DISABLED
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 1,5,1,0
+ PRODUCTVERSION 1,5,1,0
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904b0"
+        BEGIN
+            VALUE "CompanyName", "JD Design"
+            VALUE "FileDescription", "Test program for using CreateFile modes & sharing"
+            VALUE "FileVersion", "1.5.1.0"
+            VALUE "InternalName", "FILETEST"
+            VALUE "LegalCopyright", "Copyright © JD Design 1995-2023"
+            VALUE "OriginalFilename", "FILETEST.EXE"
+            VALUE "ProductName", "CreateFile TEST Application"
+            VALUE "ProductVersion", "1.5.1.0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x409, 1200
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog Info
+//
+
+IDD_FILETEST_DIALOG DLGINIT
+BEGIN
+    IDC_CREATION, 0x403, 11, 0
+0x7243, 0x6165, 0x6574, 0x4e20, 0x7765, "\000" 
+    IDC_CREATION, 0x403, 14, 0
+0x7243, 0x6165, 0x6574, 0x4120, 0x776c, 0x7961, 0x0073, 
+    IDC_CREATION, 0x403, 14, 0
+0x704f, 0x6e65, 0x4520, 0x6978, 0x7473, 0x6e69, 0x0067, 
+    IDC_CREATION, 0x403, 12, 0
+0x704f, 0x6e65, 0x4120, 0x776c, 0x7961, 0x0073, 
+    IDC_CREATION, 0x403, 18, 0
+0x7254, 0x6e75, 0x6163, 0x6574, 0x4520, 0x6978, 0x7473, 0x6e69, 0x0067, 
+
+    0
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO
+BEGIN
+    IDD_ABOUTBOX, DIALOG
+    BEGIN
+    END
+
+    IDD_FILETEST_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 315
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 218
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// AFX_DIALOG_LAYOUT
+//
+
+IDD_ABOUTBOX AFX_DIALOG_LAYOUT
+BEGIN
+    0
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE
+BEGIN
+    ID_INDICATOR_EXT        "EXT"
+    ID_INDICATOR_CAPS       "CAP"
+    ID_INDICATOR_NUM        "NUM"
+    ID_INDICATOR_SCRL       "SCRL"
+    ID_INDICATOR_OVR        "OVR"
+    ID_INDICATOR_REC        "REC"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_ABOUTBOX            "&About CreateFile Test..."
+END
+
+STRINGTABLE
+BEGIN
+    AFX_IDS_APP_TITLE       "JD Design CreateFile API Test Utility"
+END
+
+#endif    // English (United Kingdom) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#include "res\FileTest.rc2"  // non-Microsoft Visual C++ edited resources
+
+#define _AFX_NO_SPLITTER_RESOURCES
+#define _AFX_NO_OLE_RESOURCES
+#define _AFX_NO_TRACKER_RESOURCES
+#define _AFX_NO_PROPERTY_RESOURCES
+#include "afxres.rc"  // Standard components
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

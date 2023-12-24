@@ -1,13 +1,15 @@
 # CFTest - Windows GUI program to exercise the Win32 CreateFile API
 
-CFTest lets you exercise the most common options you're likely to need with the CreateFile API.
+CFTest lets you exercise the most common options you're likely to need with the [CreateFile API](https://learn.microsoft.com/en-us/windows/win32/api/fileapi/nf-fileapi-createfilea).
 
 - Open and close files interactively
 - Choose to open for reading, writing, or both
 - Specify the read/write sharing options
 - Read & Write data to the file
 
-I initially wrote CFTest when I first started developing for 32-bit Windows platforms because I found the documentation for the CreateFile API options confusing. Since then I've found it invaluable on many occasions when testing applications for correct file sharing behavior and evaluating the behaviour of the file system when reading and writing files.
+![Image](cftest_screenshot.png)
+
+I initially wrote CFTest when I first started developing for 32-bit Windows platforms because I found the documentation for the CreateFile API options confusing. Since then I've found it invaluable on many occasions when testing applications for correct file sharing behaviour and evaluating the behaviour of the file system when reading and writing files.
 
 ## History
 V1.5.1 

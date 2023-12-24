@@ -5,4 +5,3 @@
 
 #include <afxwin.h>         // MFC core and standard components
 #include <afxext.h>         // MFC extensions
-#define DIM(x) (sizeof(x)/sizeof(x[0]))

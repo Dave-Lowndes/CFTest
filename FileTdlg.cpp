@@ -2,13 +2,16 @@
 //
 
 #include "stdafx.h"
+#include <Shlwapi.h>
+#include <windowsx.h>
+#include <optional>
+#include <vector>
+using std::vector;
+using std::optional;
+using std::nullopt;
+
 #include "FileTest.h"
 #include "FileTdlg.h"
-#include <windowsx.h>
-#include <Shlwapi.h>
-
-#include <vector>
-using namespace std;
 
 #ifdef _DEBUG
 #undef THIS_FILE
@@ -316,15 +319,14 @@ void CFileTestDlg::OnOpen()
 
 	DWORD dwCreateMode;
 	{
-		CString strCreation;
 		CComboBox * pcb = (CComboBox *) GetDlgItem(IDC_CREATION);
 
-		pcb->GetWindowText( strCreation );
-
-		const int indx = pcb->FindStringExact( 0, strCreation );
+		// Treat the combo index as unsigned (CB_ERR is -1) so all I need to
+		//  test is that it is less than the number of entries.
+		const unsigned int SelectedItem = pcb->GetCurSel();
 
 		/* We've found the indexed entry in the combo box - so convert it to the equivalent "OPEN" value */
-		static const DWORD cmodes[] =
+		static const DWORD CreateModex[] =
 		{
 			CREATE_NEW,
 			CREATE_ALWAYS,
@@ -333,9 +335,9 @@ void CFileTestDlg::OnOpen()
 			TRUNCATE_EXISTING 
 		};
 
-		if ( ( indx != CB_ERR ) && ( indx < DIM(cmodes) ) )
+		if ( SelectedItem < _countof(CreateModex) )
 		{
-			dwCreateMode = cmodes[indx];
+			dwCreateMode = CreateModex[SelectedItem];
 		}
 		else
 		{
@@ -457,11 +459,9 @@ void CFileTestDlg::OnBnClickedReadBuff()
 	}
 }
 
-static bool HexCharToUInt( TCHAR ch, UINT & Val )
+constexpr static optional<UINT> HexCharToUInt( TCHAR ch )
 {
-	bool bOK = true;
-
-	ch = (TCHAR) CharUpper( (LPTSTR) ch );
+	UINT Val;
 
 	if ( ( ch >= _T('0') ) && ( ch <= _T('9') ) )
 	{
@@ -471,13 +471,17 @@ static bool HexCharToUInt( TCHAR ch, UINT & Val )
 	{
 		Val = ch - _T('A') + 10;
 	}
+	else if ( (ch >= _T( 'a' )) && (ch <= _T( 'f' )) )
+	{
+		Val = ch - _T( 'a' ) + 10;
+	}
 	else
 	{
-		bOK = false;
-		Val = 0;
+		// Invalid character
+		return nullopt;
 	}
 
-	return bOK;
+	return Val;
 }
 
 void CFileTestDlg::OnBnClickedWriteBuff()
@@ -507,18 +511,18 @@ void CFileTestDlg::OnBnClickedWriteBuff()
 			size_t indx;
 			for ( indx = 0; indx < NumBytes; indx++ )
 			{
-				UINT Val;
+				auto Val = HexCharToUInt( psVals[indx].szByte[0] );
 
-				if ( HexCharToUInt( psVals[indx].szByte[0], Val ) )
+				if ( Val.has_value() )
 				{
-					Val *= 16;
+					*Val *= 16;
 
-					UINT Val2;
-					if ( HexCharToUInt( psVals[indx].szByte[1], Val2 ) )
+					const auto Val2 = HexCharToUInt( psVals[indx].szByte[1] );
+					if ( Val2.has_value() )
 					{
-						Val += Val2;
+						*Val += *Val2;
 
-						vBuffer[indx] = static_cast<BYTE>( Val );
+						vBuffer[indx] = static_cast<BYTE>( *Val );
 					}
 					else
 					{

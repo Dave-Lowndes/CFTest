@@ -12,6 +12,9 @@ CFTest lets you exercise the most common options you're likely to need with the 
 I initially wrote CFTest when I first started developing for 32-bit Windows platforms because I found the documentation for the CreateFile API options confusing. Since then I've found it invaluable on many occasions when testing applications for correct file sharing behaviour and evaluating the behaviour of the file system when reading and writing files.
 
 ## History
+V1.5.2
+Internal code simplifications.
+
 V1.5.1 
 Build with current VS for public release on GitHub.
 
